@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pandit Booking</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f3f3f3; }
+        .container { max-width: 600px; margin: 30px auto; padding: 20px; background: #fff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h2 { color: #333; text-align: center; }
+        label { font-weight: bold; display: block; margin-top: 15px; }
+        input[type="text"], input[type="email"], input[type="date"], input[type="tel"], select, textarea {
+            width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px;
+        }
+        button { margin-top: 20px; width: 100%; padding: 10px; background-color: #28a745; color: #fff; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; }
+        button:hover { background-color: #218838; }
+        .note { color: #555; font-size: 0.9em; }
+         /* Logo Styling */
+         .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            width: 150px; /* Adjust the size of the logo */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Logo Section -->
+    <div class="logo">
+        <img src="c:\Users\sergi\Pictures\large-wnzumM2CI-transformed-removebg.png" alt="Book My Spiritual Guru"> <!-- Replace with your logo's path -->
+    </div>
+    <h2>Book a Pandit for Your Ceremony</h2>
+
+    <!-- Date Selection -->
+    <label for="date">Select Date for Puja:</label>
+    <input type="date" id="date" required>
+
+<!-- Select Pandit -->
+    <label for="pandit">Choose Your Pandit:</label>
+    <select id="pandit" required>
+        <option value="" disabled selected>Select Pandit</option>
+        <option value="Himanshu_Badola">Pandit Himanshu Badola</option>
+        <option value="Naveen_Kumar">Pandit Naveen Kumar</option>
+        <option value="Shudhanshu_Bhatt">Pandit Shudhanshu Bhatt</option>
+    </select>
+
+    <!-- Type of Ceremony -->
+    <label for="ceremony">Choose the Type of Ceremony:</label>
+<select id="ceremony" required onchange="displayCharge()">
+    <option value="" disabled selected>Select Ceremony Type</option>
+    <option value="marriage">Marriage</option>
+    <option value="grah_pravesh">Grah Pravesh</option>
+    <option value="satyanarayan">Satyanarayan Katha</option>
+    <option value="namkaran">Naming Ceremony</option>
+    <option value="navgraha">Navgraha Puja</option>
+    <option value="rudrabhishek">Rudrabhishek</option>
+    <option value="laxmiganesh">Laxmi Ganesh Puja</option>
+    <option value="birthday">Birthday Ceremony</option>
+    <option value="annaprashan">Annaprashan (First Feeding Ceremony)</option>
+    <option value="mundan">Mundan (First Haircut Ceremony)</option>
+</select>
+<p id="charge" style="color: green; font-weight: bold; margin-top: 10px;"></p>
+
+    <!-- Personal Information -->
+    <label for="name">Your Full Name:</label>
+    <input type="text" id="name" required>
+
+    <label for="phone">Contact Number:</label>
+    <input type="tel" id="phone" required pattern="[0-9]{10}" placeholder="Enter 10-digit phone number">
+
+    <label for="email">Email Address (Optional):</label>
+    <input type="email" id="email" placeholder="example@domain.com">
+
+    <label for="location">Location Address:</label>
+    <input type="text" id="location" required placeholder="Enter ceremony location">
+
+    <!-- Additional Preferences -->
+    <label for="language">Language Preference:</label>
+    <select id="language">
+        <option value="" disabled selected>Select Language</option>
+        <option value="hindi">Hindi</option>
+        <option value="sanskrit">Sanskrit</option>
+        <option value="english">English</option>
+    </select>
+
+    <label for="notes">Additional Notes:</label>
+    <textarea id="notes" rows="4" placeholder="Any other ceremony-specific details"></textarea>
+
+    <!-- Success Message -->
+    <p id="successMessage" style="display:none; color: green; text-align: center; font-weight: bold; margin-top: 20px;">
+        Booking successfully submitted! You will receive confirmation shortly.
+    </p>
+    <!-- Payment Section -->
+<h3>Choose Payment Method:</h3>
+
+<!-- Payment Method Options -->
+<div>
+    <input type="radio" id="debit" name="paymentMethod" value="debit" onclick="displayPaymentFields()" required>
+    <label for="debit">Debit Card</label>
+
+    <input type="radio" id="credit" name="paymentMethod" value="credit" onclick="displayPaymentFields()">
+    <label for="credit">Credit Card</label>
+
+    <input type="radio" id="upi" name="paymentMethod" value="upi" onclick="displayPaymentFields()">
+    <label for="upi">UPI</label>
+
+    <input type="radio" id="other" name="paymentMethod" value="other" onclick="displayPaymentFields()">
+    <label for="other">Other</label>
+</div>
+
+<!-- Payment Fields (Initially Hidden) -->
+<div id="debitCreditFields" style="display:none; margin-top: 10px;">
+    <label for="cardNumber">Card Number:</label>
+    <input type="text" id="cardNumber" pattern="[0-9]{16}" placeholder="Enter 16-digit card number">
+
+    <label for="expiry">Expiry Date:</label>
+    <input type="text" id="expiry" placeholder="MM/YY">
+
+    <label for="cvv">CVV:</label>
+    <input type="text" id="cvv" pattern="[0-9]{3}" placeholder="3-digit CVV">
+</div>
+
+<div id="upiFields" style="display:none; margin-top: 10px;">
+    <label for="upiId">UPI ID:</label>
+    <input type="text" id="upiId" placeholder="example@upi">
+</div>
+
+<div id="otherFields" style="display:none; margin-top: 10px;">
+    <label for="otherMethod">Specify Other Payment Method:</label>
+    <input type="text" id="otherMethod" placeholder="e.g., PayPal, Net Banking">
+</div>
+
+<!-- Confirm Booking and Payment Button -->
+<button onclick="confirmBooking()">Confirm Booking & Payment</button>
+
+<!-- Success Message -->
+<p id="successMessage" style="display:none; color: green; text-align: center; font-weight: bold; margin-top: 20px;">
+    Booking and payment successfully submitted! You will receive confirmation shortly.
+</p>
+</div>
+
+<script>
+    function displayCharge() {
+    const ceremonyType = document.getElementById("ceremony").value;
+    const chargeElement = document.getElementById("charge");
+
+    // Define charges for each ceremony type
+    const charges = {
+        "marriage": "₹10000",
+        "grah_pravesh": "₹3000",
+        "satyanarayan": "₹2500",
+        "namkaran": "₹3000",
+        "navgraha": "₹3500",
+        "rudrabhishek": "₹5000",
+        "laxmiganesh": "₹4500",
+        "birthday": "₹2000",
+        "annaprashan": "₹1800",
+        "mundan": "₹3500"
+    };
+
+    // Display the charge for the selected ceremony
+    if (ceremonyType) {
+        chargeElement.textContent = `Charge for ${ceremonyType.replace(/_/g, ' ')}: ${charges[ceremonyType]}`;
+    } else {
+        chargeElement.textContent = ""; // Clear the charge text if no ceremony is selected
+    }
+}
+
+   
+function displayPaymentFields() {
+    const debitCreditFields = document.getElementById("debitCreditFields");
+    const upiFields = document.getElementById("upiFields");
+    const otherFields = document.getElementById("otherFields");
+
+    // Hide all fields initially
+    debitCreditFields.style.display = "none";
+    upiFields.style.display = "none";
+    otherFields.style.display = "none";
+
+    // Show fields based on selected payment method
+    const selectedMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+    if (selectedMethod === "debit" || selectedMethod === "credit") {
+        debitCreditFields.style.display = "block";
+    } else if (selectedMethod === "upi") {
+        upiFields.style.display = "block";
+    } else if (selectedMethod === "other") {
+        otherFields.style.display = "block";
+    }
+}
+   
+function confirmBooking() {
+    // Get all input values
+    const date = document.getElementById("date").value;
+    const pandit = document.getElementById("pandit").value;
+    const ceremony = document.getElementById("ceremony").value;
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const email = document.getElementById("email").value;
+    const location = document.getElementById("location").value;
+    const language = document.getElementById("language").value;
+    const notes = document.getElementById("notes").value;
+    const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
+
+    // Validate required fields
+    if (!date ||  !pandit || !ceremony || !name || !phone || !location) {
+        alert("Please fill in all required fields.");
+        return;
+    }
+    // Additional validation for payment fields
+    if (paymentMethod.value === "debit" || paymentMethod.value === "credit") {
+        const cardNumber = document.getElementById("cardNumber").value;
+        const expiry = document.getElementById("expiry").value;
+        const cvv = document.getElementById("cvv").value;
+        if (!cardNumber || !expiry || !cvv) {
+            alert("Please fill in all debit/credit card details.");
+            return;
+        }
+    } else if (paymentMethod.value === "upi") {
+        const upiId = document.getElementById("upiId").value;
+        if (!upiId) {
+            alert("Please enter your UPI ID.");
+            return;
+        }
+    } else if (paymentMethod.value === "other") {
+        const otherMethod = document.getElementById("otherMethod").value;
+        if (!otherMethod) {
+            alert("Please specify the other payment method.");
+            return;
+        }
+    }
+
+
+    // Display success message
+    const successMessage = document.getElementById("successMessage");
+    successMessage.style.display = "block";
+
+    // Hide success message after 3 seconds
+    setTimeout(() => {
+        successMessage.style.display = "none";
+    }, 3000);
+
+    // Clear the form fields
+    document.getElementById("date").value = "";
+    document.getElementById("ceremony").value = "";
+    document.getElementById("name").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("location").value = "";
+    document.getElementById("language").value = "";
+    document.getElementById("notes").value = "";
+    // Clear payment fields and reset visibility
+    document.getElementById("cardNumber").value = "";
+    document.getElementById("expiry").value = "";
+    document.getElementById("cvv").value = "";
+    document.getElementById("upiId").value = "";
+    document.getElementById("otherMethod").value = "";
+    debitCreditFields.style.display = "none";
+    upiFields.style.display = "none";
+    otherFields.style.display = "none";
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div style="text-align: center; margin-bottom: 5px;">
+        <img src="c:\Users\sergi\Pictures\large-wnzumM2CI-transformed-removebg.png" alt="Website Logo" style="height: 200px;">
+    </div>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        .pandit-details, .puja-details {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            color: #d4913f;
+        }
+        .book-button {
+            background-color: #ff6f61;
+            color: white;
+            padding: 5px 10px;  /* Reduced padding */
+            font-size: 14px;    /* Reduced font size */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }        
+        .ingredients-list {
+            list-style-type: square;
+            margin-left: 20px;
+        }
+        .pandit-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .rating {
+            margin-top: 10px;
+        }
+        .rating input {
+            display: none;
+        }
+        .rating label {
+            font-size: 25px;
+            color: gray;
+            cursor: pointer;
+        }
+        .rating input:checked ~ label {
+            color: gold;
+        }
+    </style>
+    <script>
+        function bookPuja() {
+            alert("Your puja booking request has been submitted successfully!");
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Book My Spiritual Guru</h1>
+        
+        <div class="pandit-details">
+            <h2>Pandit Details</h2>
+            
+            <div>
+                <img src="C:\Users\sergi\Pictures\College\WhatsApp Image 2025-03-20 at 20.52.29_470d1fce.jpg" alt="Pandit Himanshu Badola" class="pandit-photo">
+                <p><strong>Name:</strong> Pandit Himanshu Badola</p>
+                <p><strong>Experience:</strong> 15 years</p>
+                <p><strong>Specialization:</strong> Griha Pravesh, Satyanarayan Pooja, Navgraha Shanti</p>
+                <p><strong>Location:</strong> Rishikesh, India</p>
+                <p><strong>Contact:</strong> +91 79060 33137</p>
+                <div class="rating">
+                    <p><strong>Rate this Pandit:</strong></p>
+                    <input type="radio" id="star5-1" name="rating1" value="5"><label for="star5-1">★</label>
+                    <input type="radio" id="star4-1" name="rating1" value="4"><label for="star4-1">★</label>
+                    <input type="radio" id="star3-1" name="rating1" value="3"><label for="star3-1">★</label>
+                    <input type="radio" id="star2-1" name="rating1" value="2"><label for="star2-1">★</label>
+                    <input type="radio" id="star1-1" name="rating1" value="1"><label for="star1-1">★</label>
+                </div>
+                <div class="review-box">
+                    <p><strong>Leave a Review:</strong></p>
+                    <textarea placeholder="Write your review here..."></textarea>
+                    <button onclick="submitReview()">Submit</button>
+                </div>
+            </div>
+            
+            <div>
+                <img src="C:\Users\sergi\Pictures\College\WhatsApp Image 2025-03-20 at 20.48.05_96633333.jpg" alt="Pandit Naveen Kumar" class="pandit-photo">
+                <p><strong>Name:</strong> Pandit Naveen Kumar</p>
+                <p><strong>Experience:</strong> 20 years</p>
+                <p><strong>Specialization:</strong> Rudra Abhishek, Laxmi Ganesh, Marriage</p>
+                <p><strong>Location:</strong> Rishikesh, India</p>
+                <p><strong>Contact:</strong> +91 80579 71608</p>
+                <div class="rating">
+                    <p><strong>Rate this Pandit:</strong></p>
+                    <input type="radio" id="star5-2" name="rating2" value="5"><label for="star5-2">★</label>
+                    <input type="radio" id="star4-2" name="rating2" value="4"><label for="star4-2">★</label>
+                    <input type="radio" id="star3-2" name="rating2" value="3"><label for="star3-2">★</label>
+                    <input type="radio" id="star2-2" name="rating2" value="2"><label for="star2-2">★</label>
+                    <input type="radio" id="star1-2" name="rating2" value="1"><label for="star1-2">★</label>
+                </div>
+                <div class="review-box">
+                    <p><strong>Leave a Review:</strong></p>
+                    <textarea placeholder="Write your review here..."></textarea>
+                    <button onclick="submitReview()">Submit</button>
+                </div>
+            </div>
+            
+            <div>
+                <img src="C:\Users\sergi\Pictures\College\WhatsApp Image 2025-03-20 at 20.59.02_9eef06de.jpg" alt="Pandit Shudhanshu Bhatt" class="pandit-photo">
+                <p><strong>Name:</strong> Pandit Shudhanshu Bhatt</p>
+                <p><strong>Experience:</strong> 10 years</p>
+                <p><strong>Specialization:</strong> Rudra Abhishek, Laxmi Ganesh, Marriage</p>
+                <p><strong>Location:</strong> Rishikesh, India</p>
+                <p><strong>Contact:</strong> +91 81919 46890</p>
+                <div class="rating">
+                    <p><strong>Rate this Pandit:</strong></p>
+                    <input type="radio" id="star5-3" name="rating3" value="5"><label for="star5-3">★</label>
+                    <input type="radio" id="star4-3" name="rating3" value="4"><label for="star4-3">★</label>
+                    <input type="radio" id="star3-3" name="rating3" value="3"><label for="star3-3">★</label>
+                    <input type="radio" id="star2-3" name="rating3" value="2"><label for="star2-3">★</label>
+                    <input type="radio" id="star1-3" name="rating3" value="1"><label for="star1-3">★</label>
+                </div>
+                <div class="review-box">
+                    <p><strong>Leave a Review:</strong></p>
+                    <textarea placeholder="Write your review here..."></textarea>
+                    <button onclick="submitReview()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="puja-details">
+            <h2>Puja Details</h2>
+            <select id="pujaSelect" onchange="updatePujaDetails()">
+                <option value="grihaPravesh">Griha Pravesh Pooja</option>
+                <option value="satyanarayan">Satyanarayan Pooja</option>
+                <option value="navgrahaShanti">Navgraha Shanti</option>
+                <option value="rudraAbhishek">Rudra Abhishek</option>
+                <option value="laxmiGanesh">Laxmi Ganesh Pooja</option>
+                <option value="marriage">Marriage Ceremony</option>
+                <option value="namkaran">Namkaran Sanskar</option>
+                <option value="birthday">Birthday Puja</option>
+                <option value="annaprashan">Annaprashan</option>
+                <option value="mundan">Mundan Sanskar</option>
+            </select>
+            <div id="pujaInfo"></div>
+            <a href="fyp3.html" class="book-button">Book Now</a>
+        </div>
+    </div>
+
+    <script>
+        function updatePujaDetails() {
+            const pujaSelect = document.getElementById("pujaSelect").value;
+            const pujaInfo = document.getElementById("pujaInfo");
+            const pujaDetails = {
+                grihaPravesh: {
+                    name: "Griha Pravesh Pooja",
+                    description: "A sacred ritual performed for housewarming ceremonies to purify and bless the home.",
+                    ingredients: ["Kalash", "Mango Leaves", "Coconut", "Rice", "Ghee", "Dhoop", "Camphor"],
+                    charges: "₹3000"
+                },
+                satyanarayan: {
+                    name: "Satyanarayan Pooja",
+                    description: "A ritual dedicated to Lord Vishnu to bring peace and prosperity.",
+                    ingredients: ["Panchamrit", "Tulsi Leaves", "Chandan", "Flowers", "Betel Leaves", "Honey"],
+                    charges: "₹2500"
+                },
+                navgrahaShanti: {
+                    name: "Navgraha Shanti",
+                    description: "A puja performed to reduce the negative effects of planetary positions.",
+                    ingredients: ["Navagraha Yantra", "Red Cloth", "White Flowers", "Sesame Seeds", "Sandalwood Paste"],
+                    charges: "₹3500"
+                },
+                rudraAbhishek: {
+                    name: "Rudra Abhishek",
+                    description: "A special puja for Lord Shiva to remove obstacles and attain prosperity.",
+                    ingredients: ["Bel Patra", "Milk", "Honey", "Ghee", "Sandalwood Paste"],
+                    charges: "₹5000"
+                },
+                laxmiGanesh: {
+                    name: "Laxmi Ganesh Pooja",
+                    description: "A puja for wealth and prosperity by worshipping Goddess Laxmi and Lord Ganesh.",
+                    ingredients: ["Gold Coin", "Lotus Flowers", "Coconut", "Panchamrit"],
+                    charges: "₹4500"
+                },
+                marriage: {
+                    name: "Marriage Ceremony",
+                    description: "A sacred ritual to unite two souls in holy matrimony.",
+                    ingredients: ["Mangal Sutra", "Sindoor", "Haldi", "Flowers", "Sacred Thread"],
+                    charges: "₹10000"
+                },
+                namkaran: {
+                    name: "Namkaran Sanskar",
+                    description: "A naming ceremony for a newborn child.",
+                    ingredients: ["Holy Water", "Flowers", "Panchamrit", "Betel Leaves"],
+                    charges: "₹3000"
+                },
+                birthday: {
+                    name: "Birthday Puja",
+                    description: "A special puja to bless the individual on their birthday.",
+                    ingredients: ["Panchamrit", "Flowers", "Coconut", "Sweets"],
+                    charges: "₹2000"
+                },
+                annaprashan: {
+                    name: "Annaprashan",
+                    description: "A baby's first rice-eating ceremony.",
+                    ingredients: ["Cooked Rice", "Milk", "Honey", "Bananas"],
+                    charges: "₹1800"
+                },
+                mundan: {
+                    name: "Mundan Sanskar",
+                    description: "A hair-shaving ceremony for a child.",
+                    ingredients: ["Blade", "Turmeric", "Holy Water", "Sacred Thread"],
+                    charges: "₹3500"
+                }
+            };
+            const details = pujaDetails[pujaSelect];
+            pujaInfo.innerHTML = `<p><strong>Puja Name:</strong> ${details.name}</p>
+                                  <p><strong>Description:</strong> ${details.description}</p>
+                                  <p><strong>Required Ingredients:</strong></p>
+                                  <ul class="ingredients-list">${details.ingredients.map(item => `<li>${item}</li>`).join('')}</ul>
+                                  <p><strong>Charges:</strong> ${details.charges}</p>`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book My Spiritual Guru</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* Header Styles */
+
+        nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #eaae47;
+            font-weight: bolder;
+            padding: 0 10px;
+        }
+
+        header {
+            background-color: #000000fb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            padding-bottom: 0; 
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 100px;
+        }
+
+        .website-name {
+            font-size: 1.5rem;
+            color: #d4913ffc;
+            margin-left: 10px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            color: rgb(199, 115, 46);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: -200px;
+        }
+         /* New Logo Section */
+         .logo-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: -30px 0; /* Adjust margin to control spacing */
+            padding-top: -500px;
+        }
+
+        .logo-section img {
+            max-width: 500px; /* Set a maximum width for the logo */
+            height: auto;
+            border-radius: 20px; /* Optional: add border-radius for rounded edges */
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+        .hero button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        /* Image Section Between Hero and Services */
+.image-gap {
+    width: 100%;
+    text-align: center;
+    margin-top: -100px; /* Adjust to fine-tune the spacing */
+}
+
+.gap-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Ensure it covers the section without stretching */
+}
+
+
+        /* Services Section */
+        .services {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .services h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .service-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            border-radius: 1px;
+        }
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+        .service-card p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .service-card button {
+            padding: 10px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Pandit Registration Section */
+        .pandit-registration {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #f1f1f1;
+        }
+        .pandit-registration h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .pandit-registration p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .pandit-registration button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        footer .footer-links, footer .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 10px 0;
+        }
+        footer a {
+            color: #ff6f61;
+            text-decoration: none;
+        }
+
+        /* Modal Styles */
+        /* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    width: 300px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-close {
+    background-color: #ff6f61;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <img src="c:\Users\sergi\Pictures\large-wnzumM2CI-transformed-removebg.png" alt="Pandit Booking Logo">
+            <h1 class="website-name">Book My Spiritual Guru</h1>
+        </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="fyp 1.html" id="aboutUsBtn">About Us</a>
+            <a href="#services" id="servicesBtn">Services</a>
+            <a href="fyp4.html" id="contactpanditbtn">Contact Pandit</a>
+            <a href="final.year.project.html" id="signinBtn">Signup/Login</a>
+        </nav>
+    </header>
+    <!-- New Logo Section -->
+    <section class="logo-section">
+            <img src="c:\Users\sergi\Pictures\large-wnzumM2CI-transformed-removebg.png" alt="Middle Section Logo">
+    </section>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Book Experienced Pandits for Your Sacred Poojas</h1>
+        <p>Connecting you with qualified Pandits for all rituals and occasions.</p>
+        <button onclick="window.location.href='fyp3.html'">Book a Pandit</button>
+    </section>
+    <style>
+        .gap-image {
+            width: 1000px;
+            height: 300px;
+        }
+    </style>
+
+    <section class="image-gap">
+        <img src="c:\Users\sergi\Pictures\god.jpg" alt="Spiritual Image" class="gap-image">
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2>Explore Our Pooja Services</h2>
+        <div class="service-card">
+            <img src="c:\Users\sergi\Downloads\Grah Pravesh Clipart Vector, Clipart, Grah Pravesh, Grah Pravesh Text PNG and Vector with Transparent Background for Free Download.jpg" alt="Griha Pravesh Pooja">
+            <h3>Griha Pravesh Pooja</h3>
+            <p>Performed for housewarming ceremonies to purify the home.</p>
+            <button onclick="openServiceModal('grihaPravesh')">More Info</button>
+            <a href="fyp3.html">
+                <button>Book Now</button>
+            </a>
+        </div>
+        
+        <div class="service-card">
+            <img src="c:\Users\sergi\Downloads\Download Shree Satyanarayan pooja or lord Satyanarayana rituals are written in Hindi, Marathi Indian typeface for free.jpg" alt="Satyanarayan Pooja">
+            <h3>Satyanarayan Pooja</h3>
+            <p>A ritual to ensure prosperity, happiness, and well-being in life.</p>
+            <button onclick="openServiceModal('satyanarayan')">More Info</button>
+            <a href="fyp3.html">
+                <button>Book Now</button>
+            </a>
+        </div>
+        
+        <div class="service-card">
+            <img src="c:\Users\sergi\Downloads\Remedies for malefic planets in horoscope - Vedic Astrology.jpg" alt="Navgraha Shanti Pooja">
+            <h3>Navgraha Shanti Pooja</h3>
+            <p>For pacifying the nine planets and ensuring a balanced life.</p>
+            <button onclick="openServiceModal('navgrahaShanti')">More Info</button>
+            <a href="fyp3.html">
+                <button>Book Now</button>
+            </a>
+        </div>
+        
+        <div class="service-card">
+            <img src="c:\Users\sergi\Downloads\Pradosh Vrat Dates 2020-2022.jpg" alt="Rudrabhishek Pooja">
+            <h3>Rudrabhishek Pooja</h3>
+            <p>A pooja for seeking blessings of Lord Shiva for overall well-being.</p>
+            <button onclick="openServiceModal('rudrabhishek')">More Info</button>
+            <a href="fyp3.html">
+                <button>Book Now</button>
+            </a>
+        </div>
+        
+        <div class="service-card">
+            <img src="c:\Users\sergi\Downloads\0a927d3f-4dc8-45e5-87af-6752e7f663de.jpg" alt="Laxmi Ganesh Pooja">
+            <h3>Laxmi Ganesh Pooja</h3>
+            <p>Performed during Diwali to invite prosperity and remove obstacles.</p>
+            <button onclick="openServiceModal('laxmiGanesh')">More Info</button>
+            <a href="fyp3.html">
+                <button>Book Now</button>
+            </a>
+        </div>
+        
+        <div class="service-card">
+            <img src="c:\Users\sergi\Downloads\Hindu Indian Wedding Mandap Design Havan And Homam Vector Fire Image, Wedding, Havana, Fire PNG Transparent Clipart Image and PSD File for Free Download.jpg" alt="Marriage Pooja">
+            <h3>Marriage Pooja</h3>
+            <p>A traditional ceremony to bless the couple for a harmonious marriage.</p>
+            <button onclick="openServiceModal('marriage')">More Info</button>
+            <a href="fyp3.html">
+                <button>Book Now</button>
+            </a>
+        </div>
+        
+        <div class="service-card">
+            <img src="c:\Users\sergi\Downloads\Pooja items, Online Pandit Booking, Astrologer & Tarot Reading » Puja N Pujari - Book Pandit for Puja, Astrologer & Temple Services Online.jpg" alt="Namkaran Pooja">
+            <h3>Namkaran Pooja</h3>
+            <p>For blessing and naming a newborn, ensuring health and prosperity.</p>
+            <button onclick="openServiceModal('namkaran')">More Info</button>
+            <a href="fyp3.html">
+                <button>Book Now</button>
+            </a>
+        </div>
+        
+        <div class="service-card">
+            <img src="c:\Users\sergi\Downloads\62ef8928-f2df-4c19-865e-1889e658de15.jpg" alt="Birthday Pooja">
+            <h3>Birthday Pooja</h3>
+            <p>Performed on birthdays to invoke blessings for a prosperous life.</p>
+            <button onclick="openServiceModal('birthday')">More Info</button>
+            <a href="fyp3.html">
+                <button>Book Now</button>
+            </a>
+        </div>
+        
+        <div class="service-card">
+            <img src="c:\Users\sergi\Downloads\Basmati Cumin Rice (Jeera Rice).jpg" alt="Annaprashan Pooja">
+            <h3>Annaprashan Pooja</h3>
+            <p>The first rice-feeding ceremony to bless the child's future health and nourishment.</p>
+            <button onclick="openServiceModal('annaprashan')">More Info</button>
+            <a href="fyp3.html">
+                <button>Book Now</button>
+            </a>
+        </div>
+        
+        <div class="service-card">
+            <img src="c:\Users\sergi\Downloads\Ghbjj.jpg" alt="Mundan Pooja">
+            <h3>Mundan Pooja</h3>
+            <p>A ritual for a child's first haircut, symbolizing purification and health.</p>
+            <button onclick="openServiceModal('mundan')">More Info</button>
+            <a href="fyp3.html">
+                <button>Book Now</button>
+            </a>
+        </div>
+       
+        </div>
+    </section>
+    
+
+<!--additional services can be added similarly -->
+        </div>
+    </section>
+
+    <!-- Pandit Registration Section -->
+    <section class="pandit-registration">
+        <h2>Are You a Pandit? Join Us</h2>
+        <p>Register to provide your services to users in need of qualified Pandits for various rituals.</p>
+        <a href="final.year.project.html" id="panditRegisterBtn">
+            <button style="padding: 10px 20px; font-size: 1rem; background-color: #ff6f61; color: white; border: none; border-radius: 5px; cursor: pointer;">Register as a Pandit</button>
+        </a>
+    </section>
+    
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="fyp2.html">Home</a>
+            <a href="fyp 1.html">About Us</a>
+            <a href="#services">Services</a>
+            <a href="fyp4.html">Contact Pandit</a>
+        </div>
+        <div class="social-icons">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+        <p>&copy; 2024 Pandit Booking Service</p>
+    </footer>
+
+    <!-- About Us Modal -->
+    <!-- Service Modal -->
+    <div class="modal" id="serviceModal">
+        <div class="modal-content">
+            <h2 id="serviceTitle">Service Details</h2>
+            <p id="serviceDescription">Details about the service will go here.</p>
+            <p id="serviceDetails">Additional information about the service will go here.</p>
+            <p id="servicePurpose"></p>
+            <p id="serviceCharges"></p>
+            <button class="modal-close" onclick="closeModal('serviceModal')">Close</button>
+        </div>
+    </div>    
+
+    <!-- Sign In and Register Modals -->
+   
+    <script>
+// Open the Service modal
+const serviceData = {
+    grihaPravesh: {
+        serviceId: 'grihaPravesh',
+        title: 'Griha Pravesh Pooja',
+        description: 'A sacred ritual performed for housewarming ceremonies to purify and bless the home.',
+        details: 'Griha Pravesh Pooja is performed to purify the home and protect the family from negative influences. This ritual invokes the blessings of deities to fill the new house with peace and prosperity.',
+        purpose: 'This pooja is done to cleanse the house from any negativity, invoke divine blessings, and ensure peace and prosperity in the new home.',
+        charges: '₹3000'
+    },
+    satyanarayan: {
+        serviceId: 'satyanarayan',
+        title: 'Satyanarayan Pooja',
+        description: 'A ritual to ensure prosperity, happiness, and well-being in life.',
+        details: 'Satyanarayan Pooja is performed to express gratitude to Lord Vishnu for His blessings and to seek prosperity, health, and success in all endeavors.',
+        purpose: 'The significance of this pooja is to bring prosperity, happiness, and peace in one’s life by offering gratitude to Lord Vishnu.',
+        charges: '₹2500'
+    },
+    navgrahaShanti: {
+        serviceId: 'navgrahaShanti',
+        title: 'Navgraha Shanti Pooja',
+        description: 'For pacifying the nine planets and ensuring a balanced life.',
+        details: 'Navgraha Shanti Pooja helps to alleviate the malefic effects of the nine planets and brings peace, prosperity, and harmony to the individual.',
+        purpose: 'This pooja is performed to reduce the negative impacts of the nine planets and ensure harmony and balance in life.',
+        charges: '₹3500'
+    },
+    rudrabhishek: {
+        serviceId: 'rudrabhishek',
+        title: 'Rudrabhishek Pooja',
+        description: 'A pooja for seeking blessings of Lord Shiva for overall well-being.',
+        details: 'Rudrabhishek Pooja is an ancient ritual dedicated to Lord Shiva, performed to seek His blessings for good health, prosperity, and success.',
+        purpose: 'This pooja is done to seek Lord Shiva’s blessings for health, success, and to remove any obstacles in life.',
+        charges: '₹5000'
+    },
+    laxmiGanesh: {
+        serviceId: 'laxmiGanesh',
+        title: 'Laxmi Ganesh Pooja',
+        description: 'Performed during Diwali to invite prosperity and remove obstacles.',
+        details: 'Laxmi Ganesh Pooja is performed to invoke Goddess Laxmi for wealth and Lord Ganesh for wisdom, success, and the removal of obstacles.',
+        purpose: 'It is believed that performing this pooja removes obstacles and brings wealth and prosperity to the home.',
+        charges: '₹4500'
+    },
+    marriage: {
+        serviceId: 'marriage',
+        title: 'Marriage Pooja',
+        description: 'A traditional ceremony to bless the couple for a harmonious marriage.',
+        details: 'Marriage Pooja is a sacred ritual to bless the union of a couple, ensuring harmony, understanding, and prosperity in married life.',
+        purpose: 'This pooja ensures a peaceful and harmonious married life by seeking divine blessings for the couple.',
+        charges: '₹10000'
+    },
+    namkaran: {
+        serviceId: 'namkaran',
+        title: 'Namkaran Pooja',
+        description: 'For blessing and naming a newborn, ensuring health and prosperity.',
+        details: 'Namkaran Pooja is a traditional naming ceremony for a newborn, performed to bless the child with a bright and successful future.',
+        purpose: 'This pooja is done to give the child a positive start in life, ensuring good health and future prosperity.',
+        charges: '₹3000'
+    },
+    birthday: {
+        serviceId: 'birthday',
+        title: 'Birthday Pooja',
+        description: 'Performed on birthdays to invoke blessings for a prosperous life.',
+        details: 'Birthday Pooja is conducted to seek blessings from deities for health, happiness, and prosperity in the coming year.',
+        purpose: 'This pooja is performed to ensure a prosperous and successful year ahead for the individual.',
+        charges: '₹2000'
+    },
+    annaprashan: {
+        serviceId: 'annaprashan',
+        title: 'Annaprashan Pooja',
+        description: 'The first rice-feeding ceremony to bless the child\'s future health and nourishment.',
+        details: 'Annaprashan Pooja is a significant ritual in a child\'s life, marking the introduction of solid food to ensure the child\'s health and growth.',
+        purpose: 'This pooja is done to ensure that the child grows strong and healthy, with blessings for nourishment and prosperity.',
+        charges: '₹1800'
+    },
+    mundan: {
+        serviceId: 'mundan',
+        title: 'Mundan Pooja',
+        description: 'A ritual for a child\'s first haircut, symbolizing purification and health.',
+        details: 'Mundan Pooja is performed to promote the child\'s growth, protect them from negative energies, and ensure good health.',
+        purpose: 'The ritual signifies purification and protection for the child, ensuring their good health and well-being.',
+        charges: '₹3500'
+    }
+};
+
+// Function to open the modal with the selected service details
+function openServiceModal(serviceId) {
+    const service = serviceData[serviceId];
+    if (service) {
+        document.getElementById('serviceTitle').innerText = service.title;
+        document.getElementById('serviceDescription').innerText = service.description;
+        document.getElementById('serviceDetails').innerText = service.details; // Display additional details
+        document.getElementById('servicePurpose').innerText = `Purpose: ${service.purpose}`; // Display purpose
+        document.getElementById('serviceCharges').innerText = `Charges: ${service.charges}`; // Display charges
+        openModal('serviceModal');
+        // Show the modal
+        document.getElementById('serviceModal').style.display = 'flex';
+    }
+}
+// Function to open a modal
+function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+}                
+// Function to close a modal
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+}
+// Close the modal if clicked outside of it
+window.onclick = function(event) {
+    const modal = document.getElementById('serviceModal');
+    if (event.target === modal) {
+        closeModal('serviceModal');
+    }
+};
+        // Sign In and Register button events
+    </script>
+
+</body>
+</html>

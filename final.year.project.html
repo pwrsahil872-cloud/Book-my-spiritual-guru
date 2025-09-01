@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration</title>
+    <style>
+            body {
+                font-family: Arial, sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background-color: rgba(255, 140, 0, 0.841);
+            }
+            .container {
+                background-color: #fff;
+                padding: 30px 20px 20px;  /* Increased padding on top */
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: 400px;
+                text-align: center;
+                position: relative; /* To manage the stacking of content */
+            }
+            .container {
+                overflow-y: auto; /* Enable vertical scrolling if needed */
+                max-height: 80vh; /* Prevent excessive height */
+            }
+            .container img {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 20px; /* Added margin to ensure space for the form */
+            }
+            .container h2 {
+                margin: 0 0 20px;
+                font-size: 24px;
+            }
+            /* Rest of your CSS remains the same */                
+        .container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .container input[type="text"],
+        .container input[type="email"],
+        .container input[type="tel"],
+        .container input[type="password"],
+        .container input[type="file"],
+        .container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .container .password-container {
+            position: relative;
+        }
+        .container .password-container input {
+            padding-right: 40px;
+        }
+        .container .password-container .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        .container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .container a {
+            display: block;
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .container a:hover {
+            text-decoration: underline;
+        }
+        .hidden {
+            display: none;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                max-width: 350px;
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            input, select, textarea {
+                padding: 8px;
+            }
+
+            .container img {
+                max-width: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                width: 100%;
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            .container img {
+                max-width: 120px;
+            }
+
+            input, select, textarea {
+                padding: 6px;
+            }
+
+            input[type="submit"] {
+                font-size: 14px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="C:\Users\sergi\Pictures\large-wnzumM2CI-transformed-removebg.png" alt="Company Logo"> 
+        <div id="loginForm">
+            <h2>Login</h2>
+            <form action="login.php" method="POST">
+                <label for="loginUsername">Username</label>
+                <input type="text" id="loginUsername" name="username" required>
+
+                <label for="loginPassword">Password</label>
+                <div class="password-container">
+                    <input type="password" id="loginPassword" name="password" required>
+                    <span class="toggle-password" onclick="togglePassword('loginPassword')">👁️</span>
+                </div>
+
+                <input type="submit" value="Login">
+                <a href="#" onclick="showRegisterForm()">Don't have an account? Register here</a>
+            </form>
+        </div>
+        <div id="registerForm" class="hidden">
+            <h2>Register</h2>
+            <form action="register.php" method="POST" enctype="multipart/form-data">
+                <label for="role">Register as</label>
+                <select id="role" name="role" required>
+                <option value="" disabled selected>Select role</option>
+                 <option value="pandit">Pandit</option> 
+                 <option value="user">User</option>
+                    
+                </select>
+
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" required>
+
+                <label for="password">Password</label>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" required>
+                    <span class="toggle-password" onclick="togglePassword('password')">👁️</span>
+                </div>
+
+                <div id="panditFields" class="hidden">
+                    <label for="qualifications">Qualifications</label>
+                    <textarea id="qualifications" name="qualifications" rows="4"></textarea>
+
+                    <label for="qualificationFile">Attach Qualification Document</label>
+                    <input type="file" id="qualificationFile" name="qualificationFile" accept=".pdf,.doc,.docx">
+
+                    <label for="experience">Experience (in years)</label>
+                    <input type="text" id="experience" name="experience">
+                </div>
+
+                <input type="submit" value="Register">
+                <a href="#" onclick="showLoginForm()">Already have an account? Login here</a>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showRegisterForm() {
+            document.getElementById('loginForm').classList.add('hidden');
+            document.getElementById('registerForm').classList.remove('hidden');
+        }
+
+        function showLoginForm() {
+            document.getElementById('loginForm').classList.remove('hidden');
+            document.getElementById('registerForm').classList.add('hidden');
+        }
+
+        document.getElementById('role').addEventListener('change', function() {
+            var role = this.value;
+            var panditFields = document.getElementById('panditFields');
+            if (role === 'pandit') {
+                panditFields.classList.remove('hidden');
+            } else {
+                panditFields.classList.add('hidden');
+            }
+        });
+
+        function togglePassword(inputId) {
+            var passwordInput = document.getElementById(inputId);
+            var type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+        }
+    </script>
+</body>
+</html>
